@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "exception": "cpp",
+        "iostream": "cpp",
+        "map": "cpp",
+        "unordered_map": "cpp",
+        "vector": "cpp",
+        "algorithm": "cpp",
+        "queue": "cpp",
+        "stack": "cpp",
+        "type_traits": "cpp"
+    }
+}
