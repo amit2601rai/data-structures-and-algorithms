@@ -1,4 +1,4 @@
-# Build artifacts
+# C++ Build artifacts
 build/
 *.o
 *.exe
@@ -17,12 +17,72 @@ main
 test
 debug
 
+# Java Build artifacts
+target/
+build/
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+hs_err_pid*
+
+# Maven
+.mvn/
+mvnw
+mvnw.cmd
+
+# Gradle
+.gradle/
+build/
+gradle-app.setting
+!gradle-wrapper.jar
+!gradle-wrapper.properties
+
+# Java compilation
+*.log
+
+# Java formatter tool
+google-java-format*.jar
+
 # IDE files
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
+.project
+.classpath
+.settings/
+*.iml
+*.ipr
+*.iws
+
+# Eclipse
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.loadpath
+.recommenders
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
 
 # OS generated files
 .DS_Store
@@ -37,9 +97,40 @@ Thumbs.db
 *.tmp
 *.temp
 
-.DS_Store
+# Package Files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.war
+*.ear
+*.sar
+*.class
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# virtual machine crash logs
+hs_err_pid*
+replay_pid*
 
 # Input/output files (optional - uncomment if you want to track them)
 # input.txt
 # output.txt
 # expected.txt
+
+# Test files that might be generated
+*.input
+*.output
+*.expected
+
+# Backup files
+*.backup
+*.orig
