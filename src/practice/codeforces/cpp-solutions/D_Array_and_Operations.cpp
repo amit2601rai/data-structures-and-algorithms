@@ -16,24 +16,26 @@ typedef priority_queue<int> maxHeap;
 #define pb push_back
 #define mp make_pair
 #define tr(c, val) for (const auto &val : c)
-#define ispresent(c, val) if(c.find(val) != c.end())
-#define setp(v,n) cout<<fixed;cout<<setprecision(n)<<v<<endl;
+#define ispresent(c, val) if (c.find(val) != c.end())
+#define setp(v, n) \
+  cout << fixed;   \
+  cout << setprecision(n) << v << endl;
 
-int main(){
-    int t;
-    cin >> t;
-    while (t--) {
-        int n, k;
-        cin >> n >> k;
-        vi nums(n);
-        for (int i = 0; i < n; i++) cin >> nums[i];
-        sort(nums.begin(), nums.end());
-        int ans = 0;
-        for (int i = 0; i < n-2*k; i++) ans += nums[i];
-        for (int i = n-2*k; i < n-k; i++) {
-            ans += (nums[i]/nums[i+k]);
-        }
-        cout << ans << "\n";
+int main() {
+  int t;
+  cin >> t;
+  while (t--) {
+    int n, k;
+    cin >> n >> k;
+    vi nums(n);
+    for (int i = 0; i < n; i++) cin >> nums[i];
+    sort(nums.begin(), nums.end());
+    int ans = 0;
+    for (int i = 0; i < n - 2 * k; i++) ans += nums[i];
+    for (int i = n - 2 * k; i < n - k; i++) {
+      ans += (nums[i] / nums[i + k]);
     }
-    return 0;
+    cout << ans << "\n";
+  }
+  return 0;
 }

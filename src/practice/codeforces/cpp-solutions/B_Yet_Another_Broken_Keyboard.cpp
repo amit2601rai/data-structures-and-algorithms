@@ -3,10 +3,8 @@
 using namespace std;
 
 int main() {
-    int n, k;
-    string input;
-    
+  int n, k;
+  string input;
 
-
-    return 0;
+  return 0;
 }

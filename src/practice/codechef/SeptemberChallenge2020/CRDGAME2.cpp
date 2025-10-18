@@ -37,41 +37,45 @@ typedef priority_queue<ii> iiMaxHeap;
 #define mod 1000000007
 #define pb push_back
 #define mp make_pair
-#define rep(i, a, b) for(int i = a; i <= b; i++)
-#define rrep(i, b, a) for(int i = b; i >= a; i--)
-#define memx(a, n, value) rep(i, 0, n)a[i]=value;
-#define memxy(a, m, n, value) rep(i, 0, m) rep(j, 0, n) a[i][j]=value;
+#define rep(i, a, b) for (int i = a; i <= b; i++)
+#define rrep(i, b, a) for (int i = b; i >= a; i--)
+#define memx(a, n, value) rep(i, 0, n) a[i] = value;
+#define memxy(a, m, n, value) rep(i, 0, m) rep(j, 0, n) a[i][j] = value;
 #define tr(c, val) for (const auto &val : c)
-#define ispresent(c, val) if(c.find(val) != c.end())
-#define setp(v,n) cout<<fixed;cout<<setprecision(n)<<v<<endl;
+#define ispresent(c, val) if (c.find(val) != c.end())
+#define setp(v, n) \
+  cout << fixed;   \
+  cout << setprecision(n) << v << endl;
 
 ll cal(int n) {
-	ll ans = 1;
-	ll two = 2;
-	while (n--) {
-		ans = (ans * two) % mod;
-	}
-	return ans;
+  ll ans = 1;
+  ll two = 2;
+  while (n--) {
+    ans = (ans * two) % mod;
+  }
+  return ans;
 }
 
-int main(){
-	int t;
-	cin>>t;
-	while(t--) {
-		int n;
-		cin>>n;
-		vi v;
-		rep(i, 1, n) {
-			int val;
-			cin>>val;
-			v.pb(val);
-		}
-		sort(v.begin(), v.end());
-		ll ans = 1;
-		ll two = 2;
-		if (v[n-1] == v[n-2]) ans = (two * cal(n-2)) % mod;
-		else ans = cal(n);
-		cout<<ans<<endl;
-	}
-	return 0;
+int main() {
+  int t;
+  cin >> t;
+  while (t--) {
+    int n;
+    cin >> n;
+    vi v;
+    rep(i, 1, n) {
+      int val;
+      cin >> val;
+      v.pb(val);
+    }
+    sort(v.begin(), v.end());
+    ll ans = 1;
+    ll two = 2;
+    if (v[n - 1] == v[n - 2])
+      ans = (two * cal(n - 2)) % mod;
+    else
+      ans = cal(n);
+    cout << ans << endl;
+  }
+  return 0;
 }

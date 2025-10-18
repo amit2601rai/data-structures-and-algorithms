@@ -13,6 +13,4 @@ typedef vector<ii> vii;
 #define pb push_back
 #define mp make_pair
 
-int main(){
-	return 0;
-}
+int main() { return 0; }

@@ -16,18 +16,21 @@ typedef priority_queue<int> maxHeap;
 #define pb push_back
 #define mp make_pair
 #define tr(c, val) for (const auto &val : c)
-#define ispresent(c, val) if(c.find(val) != c.end())
-#define setp(v,n) cout<<fixed;cout<<setprecision(n)<<v<<endl;
+#define ispresent(c, val) if (c.find(val) != c.end())
+#define setp(v, n) \
+  cout << fixed;   \
+  cout << setprecision(n) << v << endl;
 
-
-int main(){
-    int n;
-    vi dp(n+1);
-    dp[1] = dp[2] = 4;
-    for (int i = 3; i <= n; i++) {
-        if (i%2) dp[i] = dp[i-1] + 1;
-        else dp[i] = 2*dp[i-1] + dp[i-2];
-    }
-    cout << dp[n] << endl;
-    return 0;
+int main() {
+  int n;
+  vi dp(n + 1);
+  dp[1] = dp[2] = 4;
+  for (int i = 3; i <= n; i++) {
+    if (i % 2)
+      dp[i] = dp[i - 1] + 1;
+    else
+      dp[i] = 2 * dp[i - 1] + dp[i - 2];
+  }
+  cout << dp[n] << endl;
+  return 0;
 }

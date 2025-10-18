@@ -30,11 +30,11 @@ typedef priority_queue<ii> pmaxHeap;
 #define init_2D(a, m, n, value) FOR(i, 0, m) FOR(j, 0, n) a[i][j] = value;
 #define s(x) scanf("%d", &x)
 #define p(x) printf("%d\n", x)
-#define tr(type, container)                                                    \
-  type ::iterator it;                                                          \
+#define tr(type, container) \
+  type ::iterator it;       \
   for (it = container.begin(); it != container.end(); it++)
-#define setp(v, n)                                                             \
-  cout << fixed;                                                               \
+#define setp(v, n) \
+  cout << fixed;   \
   cout << setprecision(n) << v << endl;
 
 int main() {

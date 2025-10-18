@@ -37,69 +37,73 @@ typedef priority_queue<ii> iiMaxHeap;
 
 #define pb push_back
 #define mp make_pair
-#define setp(v,n) cout<<fixed;cout<<setprecision(n)<<v<<endl;
+#define setp(v, n) \
+  cout << fixed;   \
+  cout << setprecision(n) << v << endl;
 
 ll mod = 998244353;
 vll fact(300005, 1);
 
-ll power(ll a,ll b,ll m){
-    long long x=1,y=a;
-    while(b > 0){
-        if(b%2 == 1){
-            x = (x*y)%m;
-        }
-        y = (y*y)%m;
-        b = b >> 1;
+ll power(ll a, ll b, ll m) {
+  long long x = 1, y = a;
+  while (b > 0) {
+    if (b % 2 == 1) {
+      x = (x * y) % m;
     }
-    return x%m;
+    y = (y * y) % m;
+    b = b >> 1;
+  }
+  return x % m;
 }
 
-ll modInverse(ll a,ll m){
-    return power(a, m-2, m);
-}
+ll modInverse(ll a, ll m) { return power(a, m - 2, m); }
 
 ll nCr(ll n, ll r) {
-	if(r > n) return 0;
-	return ((fact[n]* modInverse(fact[r], mod) % mod) * modInverse(fact[n-r], mod) % mod) % mod;
+  if (r > n) return 0;
+  return ((fact[n] * modInverse(fact[r], mod) % mod) * modInverse(fact[n - r], mod) % mod) % mod;
 }
 
 bool mycomp(ii x, ii y) {
-	if(x.first < y.first) return true;
-	else if(x.first > y.first) return false;
-	else return (x.second > y.second);
+  if (x.first < y.first)
+    return true;
+  else if (x.first > y.first)
+    return false;
+  else
+    return (x.second > y.second);
 }
 
-int main(){
-	int n, k;
-	cin>>n>>k;
+int main() {
+  int n, k;
+  cin >> n >> k;
 
-    vii input;
-	for (int i = 1; i <=n; i++) {
-		int s, e;
-		cin>>s>>e;
-		input.pb({s, 1});
-		input.pb({e, 0});
-	}
+  vii input;
+  for (int i = 1; i <= n; i++) {
+    int s, e;
+    cin >> s >> e;
+    input.pb({s, 1});
+    input.pb({e, 0});
+  }
 
-	sort(input.begin(), input.end(), mycomp);
+  sort(input.begin(), input.end(), mycomp);
 
-	// Precompute Fact
-	for (ll i = 2; i < 300005; i++) {
-		fact[i] = (fact[i-1]*i)%mod;
-	}
+  // Precompute Fact
+  for (ll i = 2; i < 300005; i++) {
+    fact[i] = (fact[i - 1] * i) % mod;
+  }
 
-	ll ans = 0;
-	ll onLamps = 0;
-	for (auto c:input) {
-		if(c.second == 1) {
-			if(onLamps >= k-1) {
-				ans += nCr(onLamps, k-1);
-			   if(ans >= mod) ans %= mod;
-		    }
-		    onLamps++;
-	    } else onLamps--;
-	} 
-	cout<<ans<<endl;
+  ll ans = 0;
+  ll onLamps = 0;
+  for (auto c : input) {
+    if (c.second == 1) {
+      if (onLamps >= k - 1) {
+        ans += nCr(onLamps, k - 1);
+        if (ans >= mod) ans %= mod;
+      }
+      onLamps++;
+    } else
+      onLamps--;
+  }
+  cout << ans << endl;
 
-	return 0;
+  return 0;
 }

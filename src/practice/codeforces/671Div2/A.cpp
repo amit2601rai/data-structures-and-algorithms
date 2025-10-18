@@ -37,10 +37,10 @@ typedef priority_queue<ii> iiMaxHeap;
 #define mod 1000000007
 #define pb push_back
 #define mp make_pair
-#define rep(i, a, b) for(int i = a; i <= b; i++)
-#define rrep(i, b, a) for(int i = b; i >= a; i--)
-#define memx(a, n, value) loop(i, 0, n, 1)a[i]=value;
-#define memxy(a, m, n, value) loop(i, 0, m, 1) loop(j, 0, n, 1) a[i][j]=value;
+#define rep(i, a, b) for (int i = a; i <= b; i++)
+#define rrep(i, b, a) for (int i = b; i >= a; i--)
+#define memx(a, n, value) loop(i, 0, n, 1) a[i] = value;
+#define memxy(a, m, n, value) loop(i, 0, m, 1) loop(j, 0, n, 1) a[i][j] = value;
 #define scd(t) scanf("%d", &t)
 #define scld(t) scanf("%ld", &t)
 #define sclld(t) scanf("%lld", &t)
@@ -49,30 +49,35 @@ typedef priority_queue<ii> iiMaxHeap;
 #define scf(t) scanf("%f", &t)
 #define sclf(t) scanf("%lf", &t)
 #define tr(c, val) for (const auto &val : c)
-#define ispresent(c, val) if(c.find(val) != c.end())
-#define setp(v,n) cout<<fixed;cout<<setprecision(n)<<v<<endl;
+#define ispresent(c, val) if (c.find(val) != c.end())
+#define setp(v, n) \
+  cout << fixed;   \
+  cout << setprecision(n) << v << endl;
 
-
-int main(){
-	int t;
-	cin>>t;
-	while(t--) {
-		int n;
-		cin>>n;
-		int oo = 0, ee = 0;
-	    rep(i, 1, n) {
-	    	char c;
-	    	cin>>c;
-	    	if(i%2 == 0 && (c - '0') % 2 == 0) ee++;
-	        if(i%2 != 0 && (c - '0') % 2 != 0) oo++;
-	    }
-	    if(n%2 == 0) {
-	    	if(ee > 0) cout<<2<<endl;
-	    	else cout<<1<<endl;
-	    } else {
-	    	if(oo > 0) cout<<1<<endl;
-	    	else cout<<2<<endl;
-	    }
-	}
-	return 0;
+int main() {
+  int t;
+  cin >> t;
+  while (t--) {
+    int n;
+    cin >> n;
+    int oo = 0, ee = 0;
+    rep(i, 1, n) {
+      char c;
+      cin >> c;
+      if (i % 2 == 0 && (c - '0') % 2 == 0) ee++;
+      if (i % 2 != 0 && (c - '0') % 2 != 0) oo++;
+    }
+    if (n % 2 == 0) {
+      if (ee > 0)
+        cout << 2 << endl;
+      else
+        cout << 1 << endl;
+    } else {
+      if (oo > 0)
+        cout << 1 << endl;
+      else
+        cout << 2 << endl;
+    }
+  }
+  return 0;
 }

@@ -1,5 +1,5 @@
 /*Amit Rai(IIIT Hyderabad)*/
- #include <bits/stdc++.h>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -19,34 +19,36 @@ typedef priority_queue<ii> pmaxHeap;
 
 #define pb push_back
 #define mp make_pair
-#define FOR(i,a, b) for (int i = a; i <= b; i++)
-#define REP(i,a,b) for(int i = a; i < b; i++)
-#define init_1D(a,n,value) FOR(i,0,n)a[i]=value;
-#define init_2D(a,m,n,value) FOR(i,0,m) FOR(j,0,n) a[i][j]=value;
-#define s(x) scanf("%d",&x)
-#define p(x) printf("%d\n",x)
-#define setp(v,n) cout<<fixed;cout<<setprecision(n)<<v<<endl;
-#define all(c) (c).begin(),(c).end()
-#define tr(c,it) for(typeof(c).begin() it = (c).begin(); it != (c).end(); it++)
-#define present(c,x) ((c).find(x) != (c).end())
-#define cpresent(c,x) (find(all(c),x) != (c).end())
+#define FOR(i, a, b) for (int i = a; i <= b; i++)
+#define REP(i, a, b) for (int i = a; i < b; i++)
+#define init_1D(a, n, value) FOR(i, 0, n) a[i] = value;
+#define init_2D(a, m, n, value) FOR(i, 0, m) FOR(j, 0, n) a[i][j] = value;
+#define s(x) scanf("%d", &x)
+#define p(x) printf("%d\n", x)
+#define setp(v, n) \
+  cout << fixed;   \
+  cout << setprecision(n) << v << endl;
+#define all(c) (c).begin(), (c).end()
+#define tr(c, it) for (typeof(c).begin() it = (c).begin(); it != (c).end(); it++)
+#define present(c, x) ((c).find(x) != (c).end())
+#define cpresent(c, x) (find(all(c), x) != (c).end())
 
-string stringWithoutDuplicate(string input){
-    string ans = "";
-    int hash[256];
-    init_1D(hash, 255, 0);
-    for(int i = 0; i < input.size(); i++){
-        if(hash[input[i]] == 0){
-            ans.append(1,input[i]);
-            hash[input[i]]++;
-        }
+string stringWithoutDuplicate(string input) {
+  string ans = "";
+  int hash[256];
+  init_1D(hash, 255, 0);
+  for (int i = 0; i < input.size(); i++) {
+    if (hash[input[i]] == 0) {
+      ans.append(1, input[i]);
+      hash[input[i]]++;
     }
-return ans;
+  }
+  return ans;
 }
 
-int main(){
-    string str;
-    cin>>str;
-    cout<<stringWithoutDuplicate(str)<<endl;
-return 0;
+int main() {
+  string str;
+  cin >> str;
+  cout << stringWithoutDuplicate(str) << endl;
+  return 0;
 }

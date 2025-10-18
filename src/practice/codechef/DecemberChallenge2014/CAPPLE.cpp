@@ -1,5 +1,5 @@
 /*Amit Rai(IIIT Hyderabad)*/
- #include <bits/stdc++.h>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -19,30 +19,32 @@ typedef priority_queue<ii> pmaxHeap;
 
 #define pb push_back
 #define mp make_pair
-#define FOR(i,a, b) for (int i = a; i <= b; i++)
-#define REP(i,a,b) for(int i = a; i < b; i++)
-#define init_1D(a,n,value) FOR(i,0,n)a[i]=value;
-#define init_2D(a,m,n,value) FOR(i,0,m) FOR(j,0,n) a[i][j]=value;
-#define s(x) scanf("%d",&x)
-#define p(x) printf("%d\n",x)
-#define tr(type,container) type :: iterator it; for(it = container.begin(); it!= container.end(); it++)
-#define setp(v,n) cout<<fixed;cout<<setprecision(n)<<v<<endl;
+#define FOR(i, a, b) for (int i = a; i <= b; i++)
+#define REP(i, a, b) for (int i = a; i < b; i++)
+#define init_1D(a, n, value) FOR(i, 0, n) a[i] = value;
+#define init_2D(a, m, n, value) FOR(i, 0, m) FOR(j, 0, n) a[i][j] = value;
+#define s(x) scanf("%d", &x)
+#define p(x) printf("%d\n", x)
+#define tr(type, container) \
+  type ::iterator it;       \
+  for (it = container.begin(); it != container.end(); it++)
+#define setp(v, n) \
+  cout << fixed;   \
+  cout << setprecision(n) << v << endl;
 
-int main(){
-    int T;
-    s(T);
-    while(T--){
-        si s;
-        int n;
-        s(n);
-        while(n--){
-            int x;
-            s(x);
-            s.insert(x);
-        }
-        p(s.size());
+int main() {
+  int T;
+  s(T);
+  while (T--) {
+    si s;
+    int n;
+    s(n);
+    while (n--) {
+      int x;
+      s(x);
+      s.insert(x);
     }
-return 0;
+    p(s.size());
+  }
+  return 0;
 }
-
-

@@ -1,5 +1,5 @@
 /*Amit Rai(IIIT Hyderabad)*/
- #include <bits/stdc++.h>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -19,37 +19,38 @@ typedef priority_queue<ii> pmaxHeap;
 
 #define pb push_back
 #define mp make_pair
-#define FOR(i,a, b) for (int i = a; i <= b; i++)
-#define REP(i,a,b) for(int i = a; i < b; i++)
-#define init_1D(a,n,value) FOR(i,0,n)a[i]=value;
-#define init_2D(a,m,n,value) FOR(i,0,m) FOR(j,0,n) a[i][j]=value;
-#define s(x) scanf("%d",&x)
-#define p(x) printf("%d\n",x)
-#define setp(v,n) cout<<fixed;cout<<setprecision(n)<<v<<endl;
-#define all(c) (c).begin(),(c).end()
-#define tr(c,it) for(typeof(c).begin() it = (c).begin(); it != (c).end(); it++)
-#define present(c,x) ((c).find(x) != (c).end())
-#define cpresent(c,x) (find(all(c),x) != (c).end())
+#define FOR(i, a, b) for (int i = a; i <= b; i++)
+#define REP(i, a, b) for (int i = a; i < b; i++)
+#define init_1D(a, n, value) FOR(i, 0, n) a[i] = value;
+#define init_2D(a, m, n, value) FOR(i, 0, m) FOR(j, 0, n) a[i][j] = value;
+#define s(x) scanf("%d", &x)
+#define p(x) printf("%d\n", x)
+#define setp(v, n) \
+  cout << fixed;   \
+  cout << setprecision(n) << v << endl;
+#define all(c) (c).begin(), (c).end()
+#define tr(c, it) for (typeof(c).begin() it = (c).begin(); it != (c).end(); it++)
+#define present(c, x) ((c).find(x) != (c).end())
+#define cpresent(c, x) (find(all(c), x) != (c).end())
 
-
-//Not Tested
-void mergerKSortedArray(vector<int> v[], int k, int total_sz){
-    int ans[total_sz];
-    int pos[k];
-    init_1D(pos, k-1, 0);
-    minHeap Q;
-    for(int i = 0; i < k; i++){
-        Q.push(mp(v[i][pos[i]], i));
-    }
-    while(!Q.empty()){
-        ii tmp = Q.top();
-        Q.pop();
-        ans[idx++] = tmp.first;
-        if(pos[tmp.second] < v[tmp.second].size() - 1) {
-            pos[tmp.second]++;
+// Not Tested
+void mergerKSortedArray(vector<int> v[], int k, int total_sz) {
+  int ans[total_sz];
+  int pos[k];
+  init_1D(pos, k - 1, 0);
+  minHeap Q;
+  for (int i = 0; i < k; i++) {
+    Q.push(mp(v[i][pos[i]], i));
+  }
+  while (!Q.empty()) {
+    ii tmp = Q.top();
+    Q.pop();
+    ans[idx++] = tmp.first;
+    if (pos[tmp.second] < v[tmp.second].size() - 1) {
+      pos[tmp.second]++;
             Q.push(mp(v[tmp.second][pos[tmp.second], tmp.second));
-        }
     }
-    FOR(i,0,total_sz-1) cout<<ans[i]<<" ";
-    cout<<endl;
+  }
+  FOR(i, 0, total_sz - 1) cout << ans[i] << " ";
+  cout << endl;
 }

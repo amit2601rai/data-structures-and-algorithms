@@ -16,31 +16,31 @@ typedef priority_queue<int> maxHeap;
 #define pb push_back
 #define mp make_pair
 #define tr(c, val) for (const auto &val : c)
-#define ispresent(c, val) if(c.find(val) != c.end())
-#define setp(v,n) cout<<fixed;cout<<setprecision(n)<<v<<endl;
+#define ispresent(c, val) if (c.find(val) != c.end())
+#define setp(v, n) \
+  cout << fixed;   \
+  cout << setprecision(n) << v << endl;
 
-
-int main(){
-    int t;
-    cin >> t;
-    while (t--) {
-        int n;
-        cin >> n;
-        int a = 1, b = n-1;
-        int lcm = n-1;
-        for (int i = 2; i * i <= n; i++) {
-            if (n%i == 0) {
-                int f = i, s = n/i;
-                if (lcm > n-f) {
-                    a = f, b = n-f, lcm = n-f;
-                }
-                if (lcm > n-s) {
-                    a = s, b = n-s, lcm = n-s;
-                }
-            }
-            
+int main() {
+  int t;
+  cin >> t;
+  while (t--) {
+    int n;
+    cin >> n;
+    int a = 1, b = n - 1;
+    int lcm = n - 1;
+    for (int i = 2; i * i <= n; i++) {
+      if (n % i == 0) {
+        int f = i, s = n / i;
+        if (lcm > n - f) {
+          a = f, b = n - f, lcm = n - f;
         }
-        cout << a << " " << b << "\n";
+        if (lcm > n - s) {
+          a = s, b = n - s, lcm = n - s;
+        }
+      }
     }
-    return 0;
+    cout << a << " " << b << "\n";
+  }
+  return 0;
 }

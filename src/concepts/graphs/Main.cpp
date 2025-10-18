@@ -1,23 +1,21 @@
 /*Amit Rai(IIIT Hyderabad)*/
+#include "ArticulationPoint.cpp"
+#include "BFS.cpp"
+#include "BellmanFord.cpp"
+#include "BipartiteCheck.cpp"
+#include "Bridge.cpp"
+#include "ConnectedComponent.cpp"
+#include "CycleDetection.cpp"
+#include "DFS.cpp"
+#include "Dijkstra.cpp"
+#include "FloydWarshall.cpp"
 #include "Header.cpp"
 #include "InputGraph.cpp"
-#include "BFS.cpp"
-#include "DFS.cpp"
-#include "ArticulationPoint.cpp"
-#include "Bridge.cpp"
-#include "TopologicalSort.cpp"
-#include "BipartiteCheck.cpp"
-#include "CycleDetection.cpp"
-#include "Dijkstra.cpp"
-#include "Prim.cpp"
 #include "Kruskal.cpp"
-#include "ConnectedComponent.cpp"
+#include "Prim.cpp"
 #include "StronglyConnectedComponent.cpp"
-#include "BellmanFord.cpp"
-#include "FloydWarshall.cpp"
+#include "TopologicalSort.cpp"
 #include "TreeDiameter.cpp"
 #include "TreeVertexCover.cpp"
 
-
-int main(){
-}
+int main() {}

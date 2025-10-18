@@ -1,5 +1,5 @@
 /*Amit Rai(IIIT Hyderabad)*/
- #include <bits/stdc++.h>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -19,56 +19,60 @@ typedef priority_queue<ii> pmaxHeap;
 
 #define pb push_back
 #define mp make_pair
-#define FOR(i,a, b) for (int i = a; i <= b; i++)
-#define REP(i,a,b) for(int i = a; i < b; i++)
-#define init_1D(a,n,value) FOR(i,0,n)a[i]=value;
-#define init_2D(a,m,n,value) FOR(i,0,m) FOR(j,0,n) a[i][j]=value;
-#define s(x) scanf("%d",&x)
-#define p(x) printf("%d\n",x)
-#define tr(type,container) type :: iterator it; for(it = container.begin(); it!= container.end(); it++)
-#define setp(v,n) cout<<fixed;cout<<setprecision(n)<<v<<endl;
+#define FOR(i, a, b) for (int i = a; i <= b; i++)
+#define REP(i, a, b) for (int i = a; i < b; i++)
+#define init_1D(a, n, value) FOR(i, 0, n) a[i] = value;
+#define init_2D(a, m, n, value) FOR(i, 0, m) FOR(j, 0, n) a[i][j] = value;
+#define s(x) scanf("%d", &x)
+#define p(x) printf("%d\n", x)
+#define tr(type, container) \
+  type ::iterator it;       \
+  for (it = container.begin(); it != container.end(); it++)
+#define setp(v, n) \
+  cout << fixed;   \
+  cout << setprecision(n) << v << endl;
 
-int searchZero(int b[], int n){
-    FOR(i,1,n)if(b[i] != 0)return i;
-    return 0;
+int searchZero(int b[], int n) {
+  FOR(i, 1, n) if (b[i] != 0) return i;
+  return 0;
 }
 
-int minVal(int b[], int idx, int n){
-    int minVal = INT_MAX;
-    FOR(i,idx,n){
-        if(b[i] == 0) break;
-        minVal = min(minVal, b[i]);
-    }
-    return minVal;
+int minVal(int b[], int idx, int n) {
+  int minVal = INT_MAX;
+  FOR(i, idx, n) {
+    if (b[i] == 0) break;
+    minVal = min(minVal, b[i]);
+  }
+  return minVal;
 }
 
-int main(){
-    int n;
-    ll k;
-    scanf("%d %lld",&n, &k);
-    int a[n+1];
-    int maxVal = -1;
-    FOR(i,1,n){
-        s(a[i]);
-        maxVal = max(maxVal, a[i]);
+int main() {
+  int n;
+  ll k;
+  scanf("%d %lld", &n, &k);
+  int a[n + 1];
+  int maxVal = -1;
+  FOR(i, 1, n) {
+    s(a[i]);
+    maxVal = max(maxVal, a[i]);
+  }
+  int b[n + 1];
+  FOR(i, 1, n) b[i] = maxVal - a[i];
+  ll ans = 0;
+  while (true) {
+    int idx = searchZero(b, n);
+    if (idx == 0) break;
+    int mVal = minVal(b, idx, n);
+    ans += mVal;
+    FOR(i, idx, n) {
+      if (b[i] == 0) break;
+      b[i] -= mVal;
     }
-    int b[n+1];
-    FOR(i,1,n) b[i] = maxVal - a[i];
-    ll ans = 0;
-    while(true){
-        int idx = searchZero(b, n);
-        if(idx == 0) break;
-        int mVal = minVal(b, idx, n);
-        ans += mVal;
-        FOR(i,idx,n){
-            if(b[i] == 0) break;
-            b[i] -= mVal;
-        }
-    }
-    if(ans > k) ans = 0;
-    else ans = 1LL + (k-ans);
-    printf("%lld\n", ans);
-return 0;
+  }
+  if (ans > k)
+    ans = 0;
+  else
+    ans = 1LL + (k - ans);
+  printf("%lld\n", ans);
+  return 0;
 }
-
-

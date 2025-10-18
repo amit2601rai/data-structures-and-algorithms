@@ -1,12 +1,10 @@
 #include <iostream>
 #include <unordered_map>
 
-
 using namespace std;
 
 typedef long long ll;
 constexpr ll MOD = 1e9 + 7;
-
 
 ll solve() {
   unordered_map<int, int> mp;
@@ -22,8 +20,7 @@ ll solve() {
     ans *= (it->second + 1);
     if (ans >= MOD) ans %= MOD;
   }
-  return (ans - 1)%MOD;
-
+  return (ans - 1) % MOD;
 }
 
 int main() {

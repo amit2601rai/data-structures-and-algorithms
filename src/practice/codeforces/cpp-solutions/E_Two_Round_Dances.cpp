@@ -16,22 +16,21 @@ typedef priority_queue<int> maxHeap;
 #define pb push_back
 #define mp make_pair
 #define tr(c, val) for (const auto &val : c)
-#define ispresent(c, val) if(c.find(val) != c.end())
-#define setp(v,n) cout<<fixed;cout<<setprecision(n)<<v<<endl;
-
+#define ispresent(c, val) if (c.find(val) != c.end())
+#define setp(v, n) \
+  cout << fixed;   \
+  cout << setprecision(n) << v << endl;
 
 ll fact(ll n) {
-    if (n == 0) return 1;
-    return n*fact(n-1);
+  if (n == 0) return 1;
+  return n * fact(n - 1);
 }
 
-ll ncr(ll n, ll r) {
-    return fact(n)/(fact(n-r)*fact(r));
-}
+ll ncr(ll n, ll r) { return fact(n) / (fact(n - r) * fact(r)); }
 
-int main(){
-    ll n;
-    cin >> n;
-    cout << (ncr(n, n/2LL)*fact(n/2-1)*fact(n/2-1))/2LL << endl;
-    return 0;
+int main() {
+  ll n;
+  cin >> n;
+  cout << (ncr(n, n / 2LL) * fact(n / 2 - 1) * fact(n / 2 - 1)) / 2LL << endl;
+  return 0;
 }

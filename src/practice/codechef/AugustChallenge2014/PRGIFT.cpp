@@ -1,19 +1,19 @@
 /*Amit Rai(IIIT Hyderabad)*/
-#include<cstdio>
-#include<cstdlib>
-#include<cstring>
-#include<climits>
-#include<cmath>
-#include<iostream>
-#include<vector>
-#include<queue>
-#include<stack>
-#include<map>
-#include<set>
-#include<list>
-#include<bitset>
-#include<string>
-#include<algorithm>
+#include <algorithm>
+#include <bitset>
+#include <climits>
+#include <cmath>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <iostream>
+#include <list>
+#include <map>
+#include <queue>
+#include <set>
+#include <stack>
+#include <string>
+#include <vector>
 
 using namespace std;
 
@@ -29,32 +29,39 @@ typedef map<int, int> mi;
 
 #define pb push_back
 #define mp make_pair
-#define FOR(i,a, b) for (int i = a; i <= b; i++)
-#define memset1d(a,n,value) FOR(i,0,n)a[i]=value;
-#define memset2d(a,m,n,value) FOR(i,0,m) FOR(j,0,n) a[i][j]=value;
-#define Traverse(container,it) for(it = container.begin(); it!= container.end(); it++)
+#define FOR(i, a, b) for (int i = a; i <= b; i++)
+#define memset1d(a, n, value) FOR(i, 0, n) a[i] = value;
+#define memset2d(a, m, n, value) FOR(i, 0, m) FOR(j, 0, n) a[i][j] = value;
+#define Traverse(container, it) for (it = container.begin(); it != container.end(); it++)
 
-int main(){
-    int T;
-    scanf("%d",&T);
-    while(T--){
-        int n,k;
-        scanf("%d%d",&n,&k);
-        int a[n+1],x;
-        a[0] = 0;
-        FOR(i,1,n){
-            scanf("%d",&x);
-            if(x%2 == 0)a[i] = a[i-1] + 1;
-            else a[i] = a[i-1];
-        }
-        bool flag = false;
-        FOR(i,1,n){
-            FOR(j,i,n){
-                if(a[j] - a[i-1] == k){flag = true;break;}
-            }
-        }
-        if(flag)printf("YES\n");
-        else printf("NO\n");
+int main() {
+  int T;
+  scanf("%d", &T);
+  while (T--) {
+    int n, k;
+    scanf("%d%d", &n, &k);
+    int a[n + 1], x;
+    a[0] = 0;
+    FOR(i, 1, n) {
+      scanf("%d", &x);
+      if (x % 2 == 0)
+        a[i] = a[i - 1] + 1;
+      else
+        a[i] = a[i - 1];
     }
-return 0;
+    bool flag = false;
+    FOR(i, 1, n) {
+      FOR(j, i, n) {
+        if (a[j] - a[i - 1] == k) {
+          flag = true;
+          break;
+        }
+      }
+    }
+    if (flag)
+      printf("YES\n");
+    else
+      printf("NO\n");
+  }
+  return 0;
 }

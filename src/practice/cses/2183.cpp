@@ -1,6 +1,6 @@
-#include <vector>
-#include <iostream>
 #include <algorithm>
+#include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -10,8 +10,10 @@ ll solve(int n, vector<ll> &v) {
   if (v[0] != 1) return 1;
   ll high = 1;
   for (int i = 1; i < n; i++) {
-    if (v[i] - high < 2) high = high + v[i];
-    else break;
+    if (v[i] - high < 2)
+      high = high + v[i];
+    else
+      break;
   }
   return high + 1;
 }

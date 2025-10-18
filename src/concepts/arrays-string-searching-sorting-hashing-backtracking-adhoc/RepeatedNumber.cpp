@@ -1,5 +1,5 @@
 /*Amit Rai(IIIT Hyderabad)*/
- #include <bits/stdc++.h>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -19,32 +19,32 @@ typedef priority_queue<ii> pmaxHeap;
 
 #define pb push_back
 #define mp make_pair
-#define FOR(i,a, b) for (int i = a; i <= b; i++)
-#define REP(i,a,b) for(int i = a; i < b; i++)
-#define init_1D(a,n,value) FOR(i,0,n)a[i]=value;
-#define init_2D(a,m,n,value) FOR(i,0,m) FOR(j,0,n) a[i][j]=value;
-#define s(x) scanf("%d",&x)
-#define p(x) printf("%d\n",x)
-#define setp(v,n) cout<<fixed;cout<<setprecision(n)<<v<<endl;
-#define all(c) (c).begin(),(c).end()
-#define tr(c,it) for(typeof(c).begin() it = (c).begin(); it != (c).end(); it++)
-#define present(c,x) ((c).find(x) != (c).end())
-#define cpresent(c,x) (find(all(c),x) != (c).end())
+#define FOR(i, a, b) for (int i = a; i <= b; i++)
+#define REP(i, a, b) for (int i = a; i < b; i++)
+#define init_1D(a, n, value) FOR(i, 0, n) a[i] = value;
+#define init_2D(a, m, n, value) FOR(i, 0, m) FOR(j, 0, n) a[i][j] = value;
+#define s(x) scanf("%d", &x)
+#define p(x) printf("%d\n", x)
+#define setp(v, n) \
+  cout << fixed;   \
+  cout << setprecision(n) << v << endl;
+#define all(c) (c).begin(), (c).end()
+#define tr(c, it) for (typeof(c).begin() it = (c).begin(); it != (c).end(); it++)
+#define present(c, x) ((c).find(x) != (c).end())
+#define cpresent(c, x) (find(all(c), x) != (c).end())
 
-int repeatedNumber(int a[], int n){
-    int sz = n;
-    int xorSum = 0;
-    FOR(i,0,sz-1) xorSum ^= a[i];
-    FOR(i,1,n) xorSum ^= i;
-return xorSum;
+int repeatedNumber(int a[], int n) {
+  int sz = n;
+  int xorSum = 0;
+  FOR(i, 0, sz - 1) xorSum ^= a[i];
+  FOR(i, 1, n) xorSum ^= i;
+  return xorSum;
 }
 
-int main(){
-	int n, sz;
-	cin>>n;
-	sz = n
-	int a[sz];
-	for(int i=0; i<sz; i++) cin>>a[i];
-	p(repeatedNumber(a, n, sz));
+int main() {
+  int n, sz;
+  cin >> n;
+  sz = n int a[sz];
+  for (int i = 0; i < sz; i++) cin >> a[i];
+  p(repeatedNumber(a, n, sz));
 }
-

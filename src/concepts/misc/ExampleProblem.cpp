@@ -1,5 +1,5 @@
 /*Amit Rai (IIIT Hyderabad)*/
- #include <bits/stdc++.h>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -37,10 +37,10 @@ typedef priority_queue<ii> iiMaxHeap;
 #define mod 1000000007
 #define pb push_back
 #define mp make_pair
-#define rep(i, a, b) for(int i = a; i <= b; i++)
-#define rrep(i, b, a) for(int i = b; i >= a; i--)
-#define memx(a, n, value) loop(i, 0, n, 1)a[i]=value;
-#define memxy(a, m, n, value) loop(i, 0, m, 1) loop(j, 0, n, 1) a[i][j]=value;
+#define rep(i, a, b) for (int i = a; i <= b; i++)
+#define rrep(i, b, a) for (int i = b; i >= a; i--)
+#define memx(a, n, value) loop(i, 0, n, 1) a[i] = value;
+#define memxy(a, m, n, value) loop(i, 0, m, 1) loop(j, 0, n, 1) a[i][j] = value;
 #define scd(t) scanf("%d", &t)
 #define scld(t) scanf("%ld", &t)
 #define sclld(t) scanf("%lld", &t)
@@ -49,11 +49,12 @@ typedef priority_queue<ii> iiMaxHeap;
 #define scf(t) scanf("%f", &t)
 #define sclf(t) scanf("%lf", &t)
 #define tr(c, val) for (const auto &val : c)
-#define ispresent(c, val) if(c.find(val) != c.end())
-#define setp(v,n) cout<<fixed;cout<<setprecision(n)<<v<<endl;
+#define ispresent(c, val) if (c.find(val) != c.end())
+#define setp(v, n) \
+  cout << fixed;   \
+  cout << setprecision(n) << v << endl;
 
-
-int main(){
-	cout<<mod<<endl;
-	return 0;
+int main() {
+  cout << mod << endl;
+  return 0;
 }

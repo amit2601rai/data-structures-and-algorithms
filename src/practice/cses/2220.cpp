@@ -18,9 +18,9 @@ ll solve(int pos, int tight, int leading_zeroes, int prev_digit, string num, vec
     int new_tight = tight && (i == limit) ? 1 : 0;
     int new_leading_zeroes = leading_zeroes && (i == 0) ? 1 : 0;
     if (leading_zeroes) {
-      result += solve(pos+1, new_tight, new_leading_zeroes, i, num, dp);
+      result += solve(pos + 1, new_tight, new_leading_zeroes, i, num, dp);
     } else if (i != prev_digit) {
-      result += solve(pos+1, new_tight, new_leading_zeroes, i, num, dp);
+      result += solve(pos + 1, new_tight, new_leading_zeroes, i, num, dp);
     }
   }
   return dp[pos][tight][leading_zeroes] = result;
@@ -29,7 +29,7 @@ ll solve(int pos, int tight, int leading_zeroes, int prev_digit, string num, vec
 int main() {
   ll a, b;
   cin >> a >> b;
-  string sa = to_string(a-1);
+  string sa = to_string(a - 1);
   string sb = to_string(b);
 
   // Initialize DP vectors for both strings

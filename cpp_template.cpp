@@ -82,8 +82,7 @@ struct FastIO {
 // Debug macros
 #ifdef DEBUG
 #define debug(x) cerr << #x << " = " << (x) << '\n'
-#define debug2(x, y) \
-  cerr << #x << " = " << (x) << ", " << #y << " = " << (y) << '\n'
+#define debug2(x, y) cerr << #x << " = " << (x) << ", " << #y << " = " << (y) << '\n'
 #else
 #define debug(x)
 #define debug2(x, y)
@@ -178,9 +177,7 @@ class FenwickTree {
     return sum;
   }
 
-  int range_query(int l, int r) {
-    return query(r) - (l > 0 ? query(l - 1) : 0);
-  }
+  int range_query(int l, int r) { return query(r) - (l > 0 ? query(l - 1) : 0); }
 };
 
 // Segment Tree
@@ -220,8 +217,7 @@ class SegmentTree {
     push(node, start, end);
     if (start >= l && end <= r) return tree[node];
     int mid = (start + end) / 2;
-    return max(query_range(2 * node, start, mid, l, r),
-               query_range(2 * node + 1, mid + 1, end, l, r));
+    return max(query_range(2 * node, start, mid, l, r), query_range(2 * node + 1, mid + 1, end, l, r));
   }
 
  public:

@@ -16,28 +16,31 @@ typedef priority_queue<int> maxHeap;
 #define pb push_back
 #define mp make_pair
 #define tr(c, val) for (const auto &val : c)
-#define ispresent(c, val) if(c.find(val) != c.end())
-#define setp(v,n) cout<<fixed;cout<<setprecision(n)<<v<<endl;
+#define ispresent(c, val) if (c.find(val) != c.end())
+#define setp(v, n) \
+  cout << fixed;   \
+  cout << setprecision(n) << v << endl;
 
-
-int main(){
-    int t;
-    cin >> t;
-    while (t--) {
-        int n;
-        cin >> n;
-        vi nums(n), locked(n), unlocked;
-        for (int i = 0; i < n; i++) cin >> nums[i];
-        for (int i = 0; i < n; i++) cin >> locked[i];
-        for (int i = 0; i < n; i++) {
-            if (!locked[i]) unlocked.pb(nums[i]);
-        }
-        sort(unlocked.rbegin(), unlocked.rend());
-        for (int i = 0, j = 0; i < n; i++) {
-            if (locked[i])cout << nums[i] << " ";
-            else cout << unlocked[j++] << " ";
-        }
-        cout << "\n";
+int main() {
+  int t;
+  cin >> t;
+  while (t--) {
+    int n;
+    cin >> n;
+    vi nums(n), locked(n), unlocked;
+    for (int i = 0; i < n; i++) cin >> nums[i];
+    for (int i = 0; i < n; i++) cin >> locked[i];
+    for (int i = 0; i < n; i++) {
+      if (!locked[i]) unlocked.pb(nums[i]);
     }
-    return 0;
+    sort(unlocked.rbegin(), unlocked.rend());
+    for (int i = 0, j = 0; i < n; i++) {
+      if (locked[i])
+        cout << nums[i] << " ";
+      else
+        cout << unlocked[j++] << " ";
+    }
+    cout << "\n";
+  }
+  return 0;
 }

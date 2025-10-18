@@ -16,42 +16,53 @@ typedef priority_queue<int> maxHeap;
 #define pb push_back
 #define mp make_pair
 #define tr(c, val) for (const auto &val : c)
-#define ispresent(c, val) if(c.find(val) != c.end())
-#define setp(v,n) cout<<fixed;cout<<setprecision(n)<<v<<endl;
+#define ispresent(c, val) if (c.find(val) != c.end())
+#define setp(v, n) \
+  cout << fixed;   \
+  cout << setprecision(n) << v << endl;
 
-
-
-int main(){
-    int t;
-    cin >> t;
-    while (t--) {
-        ll a, b, n, m;
-        cin >> a >> b >> n >> m;
-        if (a+b < n+m) {cout << "No\n";continue;}
-        if (min(a,b) >= m) cout << "Yes\n";
-        else if (a == 0 && m != 0) cout << "No\n";
-        else if (a == b) {
-            if (n <= a && m <= b) cout << "Yes\n";
-            else cout << "No\n";
-        } else if (a > b) {
-            if (a-b <= n) {
-                a = b;
-                n -= b;
-                if (n <= a && m <= b) cout << "Yes\n";
-                else cout << "No\n";
-            } else {
-                cout << "No\n";
-            }
-        } else {
-            if (b-a <= n) {
-                b = a;
-                n -= a;
-                if (n <= a && m <= b) cout << "Yes\n";
-                else cout << "No\n";
-            } else {
-                cout << "No\n";
-            }
-        }
+int main() {
+  int t;
+  cin >> t;
+  while (t--) {
+    ll a, b, n, m;
+    cin >> a >> b >> n >> m;
+    if (a + b < n + m) {
+      cout << "No\n";
+      continue;
     }
-    return 0;
+    if (min(a, b) >= m)
+      cout << "Yes\n";
+    else if (a == 0 && m != 0)
+      cout << "No\n";
+    else if (a == b) {
+      if (n <= a && m <= b)
+        cout << "Yes\n";
+      else
+        cout << "No\n";
+    } else if (a > b) {
+      if (a - b <= n) {
+        a = b;
+        n -= b;
+        if (n <= a && m <= b)
+          cout << "Yes\n";
+        else
+          cout << "No\n";
+      } else {
+        cout << "No\n";
+      }
+    } else {
+      if (b - a <= n) {
+        b = a;
+        n -= a;
+        if (n <= a && m <= b)
+          cout << "Yes\n";
+        else
+          cout << "No\n";
+      } else {
+        cout << "No\n";
+      }
+    }
+  }
+  return 0;
 }

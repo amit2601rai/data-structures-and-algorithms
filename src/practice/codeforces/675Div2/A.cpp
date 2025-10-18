@@ -13,17 +13,14 @@ typedef vector<ii> vii;
 #define pb push_back
 #define mp make_pair
 
-
-
-
-int main(){
-	int t;
-	cin>>t;
-	while(t--) {
-		ll a, b, c;
-		cin>>a>>b>>c;
-		ll ans = a + b + c - 1;
-		cout<<ans<<endl;
-	}
-	return 0;
+int main() {
+  int t;
+  cin >> t;
+  while (t--) {
+    ll a, b, c;
+    cin >> a >> b >> c;
+    ll ans = a + b + c - 1;
+    cout << ans << endl;
+  }
+  return 0;
 }
