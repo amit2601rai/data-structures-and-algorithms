@@ -12,25 +12,24 @@ TST_DIR = tst
 help:
 	@echo "Competitive Programming Build System"
 	@echo "Usage:"
-	@echo "  make run FILE=src/path/to/file.cpp [INPUT=tst/path/input.txt]"
+	@echo "  make run FILE=src/path/to/file.cpp [INPUT=tst/input]"
 	@echo "  make compile FILE=src/path/to/file.cpp"
 	@echo "  make test FILE=src/path/to/file.cpp"
+	@echo "  make create-test"
 	@echo "  make clean"
 	@echo ""
 	@echo "Examples:"
 	@echo "  make run FILE=src/concepts/dynamic-programming/CoinChange.cpp"
-	@echo "  make run FILE=src/practice/codeforces/229Div2/A.cpp INPUT=tst/practice/A_input.txt"
+	@echo "  make run FILE=src/practice/codeforces/229Div2/A.cpp INPUT=tst/input"
 	@echo "  make test FILE=src/concepts/arrays-string-searching-sorting-hashing-backtracking-adhoc/MaxProfitStock.cpp"
 
 # Ensure build directory exists
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
-# Ensure test directories exist  
+# Ensure test directory exists  
 $(TST_DIR):
 	mkdir -p $(TST_DIR)
-	mkdir -p $(TST_DIR)/practice
-	mkdir -p $(TST_DIR)/concepts
 
 # Extract filename without extension and path
 define get_basename
@@ -71,15 +70,8 @@ ifndef FILE
 	$(error FILE is not set. Usage: make test FILE=src/path/to/file.cpp)
 endif
 	@NAME=$(call get_basename,$(FILE)); \
-	if echo "$(FILE)" | grep -q "src/practice"; then \
-		TEST_DIR=$(TST_DIR)/practice; \
-	elif echo "$(FILE)" | grep -q "src/concepts"; then \
-		TEST_DIR=$(TST_DIR)/concepts; \
-	else \
-		TEST_DIR=$(TST_DIR); \
-	fi; \
-	INPUT_FILE=$${TEST_DIR}/$${NAME}_input.txt; \
-	EXPECTED_FILE=$${TEST_DIR}/$${NAME}_expected.txt; \
+	INPUT_FILE=$(TST_DIR)/input; \
+	EXPECTED_FILE=$(TST_DIR)/output; \
 	OUTPUT_FILE=$(BUILD_DIR)/$${NAME}_output.txt; \
 	\
 	echo "Testing $$NAME..."; \
@@ -150,12 +142,7 @@ endif
 # Create test case files  
 .PHONY: create-test
 create-test: $(TST_DIR)
-ifndef NAME
-	$(error NAME is not set. Usage: make create-test NAME=ProblemName [DIR=practice|concepts])
-endif
-	@DIR_TYPE=$(if $(DIR),$(DIR),concepts); \
-	echo "Creating test files for $(NAME) in $${DIR_TYPE}..."; \
-	mkdir -p $(TST_DIR)/$${DIR_TYPE}; \
-	touch $(TST_DIR)/$${DIR_TYPE}/$(NAME)_input.txt; \
-	touch $(TST_DIR)/$${DIR_TYPE}/$(NAME)_expected.txt; \
-	echo "✓ Created $(TST_DIR)/$${DIR_TYPE}/$(NAME)_input.txt and $(TST_DIR)/$${DIR_TYPE}/$(NAME)_expected.txt"
+	@echo "Creating test files in $(TST_DIR)..."; \
+	touch $(TST_DIR)/input; \
+	touch $(TST_DIR)/output; \
+	echo "✓ Created $(TST_DIR)/input and $(TST_DIR)/output"

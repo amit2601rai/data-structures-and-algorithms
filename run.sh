@@ -32,7 +32,7 @@ print_usage() {
     echo ""
     echo "Examples:"
     echo "  $0 src/concepts/dynamic-programming/CoinChange.cpp"
-    echo "  $0 src/practice/codeforces/229Div2/A.cpp tst/practice/A_input.txt"
+    echo "  $0 src/practice/codeforces/229Div2/A.cpp tst/input"
     echo "  $0 -t src/concepts/arrays-string-searching-sorting-hashing-backtracking-adhoc/MaxProfitStock.cpp"
 }
 
@@ -127,16 +127,8 @@ test_file() {
     local basename=$(get_basename "$file")
     local executable="$BUILD_DIR/$basename"
     
-    # Determine test directory based on source file location
-    local test_dir="$TST_DIR"
-    if [[ "$file" == *"src/practice"* ]]; then
-        test_dir="$TST_DIR/practice"
-    elif [[ "$file" == *"src/concepts"* ]]; then
-        test_dir="$TST_DIR/concepts"
-    fi
-    
-    local input_file="$test_dir/${basename}_input.txt"
-    local expected_file="$test_dir/${basename}_expected.txt"
+    local input_file="$TST_DIR/input"
+    local expected_file="$TST_DIR/output"
     local output_file="$BUILD_DIR/${basename}_output.txt"
     
     if [[ ! -f "$executable" ]]; then

@@ -29,7 +29,7 @@ A comprehensive competitive programming repository with modern C++ templates, or
 make run FILE=src/path/to/file.cpp
 
 # Run with input file
-make run FILE=src/path/to/file.cpp INPUT=tst/path/input.txt
+make run FILE=src/path/to/file.cpp INPUT=tst/input
 
 # Run tests (compares with expected output)
 make test FILE=src/path/to/file.cpp
@@ -40,8 +40,8 @@ make debug FILE=src/path/to/file.cpp
 # Create new template file
 make template NAME=ProblemName DIR=src/concepts/category
 
-# Create test case files
-make create-test NAME=ProblemName DIR=practice  # or DIR=concepts
+# Create test case files (creates tst/input and tst/output)
+make create-test
 ```
 
 **Using Shell Script**
@@ -50,7 +50,7 @@ make create-test NAME=ProblemName DIR=practice  # or DIR=concepts
 ./run.sh src/path/to/file.cpp
 
 # Run with input file
-./run.sh src/path/to/file.cpp tst/path/input.txt
+./run.sh src/path/to/file.cpp tst/input
 
 # Run automated tests
 ./run.sh -t src/path/to/file.cpp
@@ -77,8 +77,8 @@ This repository follows a clean separation between source code and test cases:
 │       ├── leetcode/                  # LeetCode solutions
 │       └── [other-platforms]/         # Other competitive programming sites
 ├── tst/                               # Test cases directory
-│   ├── concepts/                      # Test cases for concept implementations
-│   ├── practice/                      # Test cases for contest solutions
+│   ├── input                          # Sample input file
+│   ├── output                         # Expected output file
 │   └── README.md                      # Test case documentation
 ├── build/                             # Compiled executables (git-ignored)
 ├── cpp_template.cpp                   # Master comprehensive template
@@ -95,7 +95,7 @@ This repository follows a clean separation between source code and test cases:
 ### File Naming for New Problems
 - **Concepts**: `src/concepts/[category]/ProblemDescription.cpp` (e.g., `src/concepts/dynamic-programming/CoinChange.cpp`)
 - **Practice**: `src/practice/[platform]/[ContestName]/[ProblemLetter].cpp` (e.g., `src/practice/codeforces/229Div2/A.cpp`)
-- **Test Cases**: `tst/[concepts|practice]/ProblemName_input.txt` and `tst/[concepts|practice]/ProblemName_expected.txt`
+- **Test Cases**: `tst/input` (sample input) and `tst/output` (expected output)
 
 ## 🛠️ Template Features
 
@@ -150,21 +150,18 @@ The modern C++ template (`cpp_template.cpp`) includes:
 
 ### Creating Test Cases
 ```bash
-# Create test files for a concept problem
-make create-test NAME=ProblemName DIR=concepts
-
-# Create test files for a practice problem  
-make create-test NAME=ProblemName DIR=practice
+# Create test files (creates tst/input and tst/output)
+make create-test
 
 # This creates:
-# tst/[concepts|practice]/ProblemName_input.txt    - Sample input
-# tst/[concepts|practice]/ProblemName_expected.txt - Expected output
+# tst/input    - Sample input
+# tst/output   - Expected output
 ```
 
 ### Running Tests
 ```bash
-# Add your test cases to the created files
-# Then run automated testing (automatically finds correct test directory)
+# Add your test cases to tst/input and tst/output
+# Then run automated testing
 make test FILE=src/concepts/category/ProblemName.cpp
 make test FILE=src/practice/platform/ProblemName.cpp
 ```
@@ -284,7 +281,7 @@ The template is optimized for:
    ./new_cpp.sh problem_a.cpp src/practice/codeforces/contest_123/
    ```
 3. **Implement your solution** in the `solve()` function
-4. **Create test cases**: `make create-test NAME=dijkstra DIR=concepts`
+4. **Create test cases**: `make create-test`
 5. **Test it**: `make test FILE=src/concepts/graphs/dijkstra.cpp`
 6. **Submit to your platform**
 
@@ -292,8 +289,8 @@ The template is optimized for:
 ```bash
 # Complete workflow example
 ./new_cpp.sh coin_change.cpp src/concepts/dynamic-programming/
-make create-test NAME=coin_change DIR=concepts
-# Edit tst/concepts/coin_change_input.txt and tst/concepts/coin_change_expected.txt
+make create-test
+# Edit tst/input and tst/output files
 make test FILE=src/concepts/dynamic-programming/coin_change.cpp
 ```
 
