@@ -171,7 +171,7 @@ pw.println(result);
 ## 🔧 Build System
 
 ### Maven Configuration
-- **Java Version**: 17
+- **Java Version**: 21
 - **Encoding**: UTF-8
 - **Main Class**: `practice.Main`
 - **Dependencies**: JUnit 5, AssertJ (for testing)
@@ -202,7 +202,7 @@ The build system is configured to keep the `src/` directory clean:
 - **Maven artifacts** use custom output directories to avoid polluting `src/`
 
 ### Compilation Flags
-- **Target**: Java 17
+- **Target**: Java 21
 - **Encoding**: UTF-8
 - **Debug**: Enabled for development
 
@@ -361,7 +361,7 @@ echo -e "5\n1 2 3 4 5" | ./run_java.sh practice.Main
 
 ## 🚀 Getting Started
 
-1. **Ensure Java 17+ is installed**:
+1. **Ensure Java 21+ is installed**:
    ```bash
    java --version
    ```
