@@ -15,6 +15,9 @@ help:
 	@echo "  make run FILE=src/path/to/file.cpp [INPUT=tst/input]"
 	@echo "  make compile FILE=src/path/to/file.cpp"
 	@echo "  make test FILE=src/path/to/file.cpp"
+	@echo "  make format FILE=src/path/to/file.cpp"
+	@echo "  make format-all"
+	@echo "  make format-check"
 	@echo "  make create-test"
 	@echo "  make clean"
 	@echo ""
@@ -22,6 +25,7 @@ help:
 	@echo "  make run FILE=src/concepts/dynamic-programming/CoinChange.cpp"
 	@echo "  make run FILE=src/practice/codeforces/229Div2/A.cpp INPUT=tst/input"
 	@echo "  make test FILE=src/concepts/arrays-string-searching-sorting-hashing-backtracking-adhoc/MaxProfitStock.cpp"
+	@echo "  make format FILE=src/practice/cses/2220.cpp"
 
 # Ensure build directory exists
 $(BUILD_DIR):
@@ -146,3 +150,60 @@ create-test: $(TST_DIR)
 	touch $(TST_DIR)/input; \
 	touch $(TST_DIR)/output; \
 	echo "✓ Created $(TST_DIR)/input and $(TST_DIR)/output"
+
+# Format a single file with Google C++ style
+.PHONY: format
+format:
+ifndef FILE
+	$(error FILE is not set. Usage: make format FILE=src/path/to/file.cpp)
+endif
+	@echo "Formatting $(FILE) with Google C++ style..."
+	@if command -v clang-format >/dev/null 2>&1; then \
+		clang-format -i -style=file $(FILE); \
+		echo "✓ Formatted $(FILE)"; \
+	else \
+		echo "Error: clang-format not found. Please install clang-format"; \
+		echo "  macOS: brew install clang-format"; \
+		echo "  Linux: sudo apt-get install clang-format"; \
+		exit 1; \
+	fi
+
+# Format all C++ files in the repository
+.PHONY: format-all
+format-all:
+	@echo "Formatting all C++ files with Google C++ style..."
+	@if command -v clang-format >/dev/null 2>&1; then \
+		find $(SRC_DIR) -name "*.cpp" -o -name "*.h" -o -name "*.hpp" | xargs clang-format -i -style=file; \
+		if [ -f "cpp_template.cpp" ]; then clang-format -i -style=file cpp_template.cpp; fi; \
+		echo "✓ Formatted all C++ files"; \
+	else \
+		echo "Error: clang-format not found. Please install clang-format"; \
+		echo "  macOS: brew install clang-format"; \
+		echo "  Linux: sudo apt-get install clang-format"; \
+		exit 1; \
+	fi
+
+# Check formatting without modifying files
+.PHONY: format-check
+format-check:
+	@echo "Checking C++ formatting with Google C++ style..."
+	@if command -v clang-format >/dev/null 2>&1; then \
+		UNFORMATTED=$$(find $(SRC_DIR) -name "*.cpp" -o -name "*.h" -o -name "*.hpp" | xargs clang-format -style=file --dry-run --Werror 2>&1 || true); \
+		if [ -f "cpp_template.cpp" ]; then \
+			TEMPLATE_CHECK=$$(clang-format -style=file --dry-run --Werror cpp_template.cpp 2>&1 || true); \
+			UNFORMATTED="$$UNFORMATTED$$TEMPLATE_CHECK"; \
+		fi; \
+		if [ -z "$$UNFORMATTED" ]; then \
+			echo "✓ All files are properly formatted"; \
+		else \
+			echo "✗ The following files need formatting:"; \
+			echo "$$UNFORMATTED"; \
+			echo "Run 'make format-all' to fix formatting"; \
+			exit 1; \
+		fi; \
+	else \
+		echo "Error: clang-format not found. Please install clang-format"; \
+		echo "  macOS: brew install clang-format"; \
+		echo "  Linux: sudo apt-get install clang-format"; \
+		exit 1; \
+	fi

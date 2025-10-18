@@ -82,7 +82,7 @@ struct FastIO {
 // Debug macros
 #ifdef DEBUG
 #define debug(x) cerr << #x << " = " << (x) << '\n'
-#define debug2(x, y)                                                           \
+#define debug2(x, y) \
   cerr << #x << " = " << (x) << ", " << #y << " = " << (y) << '\n'
 #else
 #define debug(x)
@@ -90,36 +90,46 @@ struct FastIO {
 #endif
 
 // ===== MATHEMATICAL UTILITIES =====
-template <typename T> T gcd(T a, T b) { return b ? gcd(b, a % b) : a; }
+template <typename T>
+T gcd(T a, T b) {
+  return b ? gcd(b, a % b) : a;
+}
 
-template <typename T> T lcm(T a, T b) { return a / gcd(a, b) * b; }
+template <typename T>
+T lcm(T a, T b) {
+  return a / gcd(a, b) * b;
+}
 
-template <typename T> T power(T base, T exp, T mod = MOD) {
+template <typename T>
+T power(T base, T exp, T mod = MOD) {
   T result = 1;
   while (exp > 0) {
-    if (exp % 2 == 1)
-      result = (result * base) % mod;
+    if (exp % 2 == 1) result = (result * base) % mod;
     base = (base * base) % mod;
     exp /= 2;
   }
   return result;
 }
 
-template <typename T> T mod_inverse(T a, T mod = MOD) {
+template <typename T>
+T mod_inverse(T a, T mod = MOD) {
   return power(a, mod - 2, mod);
 }
 
 // ===== CONTAINER UTILITIES =====
-template <typename T> void sort_unique(vector<T> &v) {
+template <typename T>
+void sort_unique(vector<T> &v) {
   sort(all(v));
   v.erase(unique(all(v)), v.end());
 }
 
-template <typename T> int lower_bound_index(const vector<T> &v, const T &val) {
+template <typename T>
+int lower_bound_index(const vector<T> &v, const T &val) {
   return lower_bound(all(v), val) - v.begin();
 }
 
-template <typename T> int upper_bound_index(const vector<T> &v, const T &val) {
+template <typename T>
+int upper_bound_index(const vector<T> &v, const T &val) {
   return upper_bound(all(v), val) - v.begin();
 }
 
@@ -129,20 +139,17 @@ template <typename T> int upper_bound_index(const vector<T> &v, const T &val) {
 class DSU {
   vi parent, rank;
 
-public:
+ public:
   DSU(int n) : parent(n), rank(n, 0) { iota(all(parent), 0); }
 
   int find(int x) { return parent[x] == x ? x : parent[x] = find(parent[x]); }
 
   bool unite(int x, int y) {
     x = find(x), y = find(y);
-    if (x == y)
-      return false;
-    if (rank[x] < rank[y])
-      swap(x, y);
+    if (x == y) return false;
+    if (rank[x] < rank[y]) swap(x, y);
     parent[y] = x;
-    if (rank[x] == rank[y])
-      rank[x]++;
+    if (rank[x] == rank[y]) rank[x]++;
     return true;
   }
 
@@ -154,7 +161,7 @@ class FenwickTree {
   int n;
   vi tree;
 
-public:
+ public:
   FenwickTree(int size) : n(size), tree(size + 1, 0) {}
 
   void update(int i, int delta) {
@@ -194,8 +201,7 @@ class SegmentTree {
 
   void update_range(int node, int start, int end, int l, int r, int val) {
     push(node, start, end);
-    if (start > r || end < l)
-      return;
+    if (start > r || end < l) return;
     if (start >= l && end <= r) {
       lazy[node] += val;
       push(node, start, end);
@@ -210,17 +216,15 @@ class SegmentTree {
   }
 
   int query_range(int node, int start, int end, int l, int r) {
-    if (start > r || end < l)
-      return INT_MIN;
+    if (start > r || end < l) return INT_MIN;
     push(node, start, end);
-    if (start >= l && end <= r)
-      return tree[node];
+    if (start >= l && end <= r) return tree[node];
     int mid = (start + end) / 2;
     return max(query_range(2 * node, start, mid, l, r),
                query_range(2 * node + 1, mid + 1, end, l, r));
   }
 
-public:
+ public:
   SegmentTree(int size) : n(size) {
     tree.assign(4 * n, 0);
     lazy.assign(4 * n, 0);
@@ -279,8 +283,7 @@ vll dijkstra(const WeightedGraph &g, int start) {
     auto [d, u] = pq.top();
     pq.pop();
 
-    if (d > dist[u])
-      continue;
+    if (d > dist[u]) continue;
 
     for (auto [v, w] : g[u]) {
       if (dist[u] + w < dist[v]) {
@@ -340,7 +343,7 @@ class Combinatorics {
   int n;
   vll fact, inv_fact;
 
-public:
+ public:
   Combinatorics(int size) : n(size), fact(size + 1), inv_fact(size + 1) {
     fact[0] = 1;
     FOR(i, 1, n + 1) { fact[i] = (fact[i - 1] * i) % MOD; }
@@ -349,14 +352,12 @@ public:
   }
 
   ll nCr(int n, int r) {
-    if (r < 0 || r > n)
-      return 0;
+    if (r < 0 || r > n) return 0;
     return (fact[n] * inv_fact[r] % MOD) * inv_fact[n - r] % MOD;
   }
 
   ll nPr(int n, int r) {
-    if (r < 0 || r > n)
-      return 0;
+    if (r < 0 || r > n) return 0;
     return fact[n] * inv_fact[n - r] % MOD;
   }
 };
@@ -364,11 +365,13 @@ public:
 // ===== RANDOM UTILITIES =====
 mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 
-template <typename T> T random_int(T l, T r) {
+template <typename T>
+T random_int(T l, T r) {
   return uniform_int_distribution<T>(l, r)(rng);
 }
 
-template <typename T> void shuffle_vector(vector<T> &v) {
+template <typename T>
+void shuffle_vector(vector<T> &v) {
   shuffle(all(v), rng);
 }
 

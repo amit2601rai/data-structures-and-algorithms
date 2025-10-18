@@ -1,20 +1,20 @@
 // Common competitive programming header template for CSES problems
-#include <iostream>
-#include <vector>
-#include <string>
 #include <algorithm>
-#include <map>
-#include <set>
-#include <queue>
-#include <stack>
-#include <deque>
 #include <climits>
 #include <cmath>
 #include <cstring>
+#include <deque>
 #include <iomanip>
+#include <iostream>
+#include <map>
+#include <queue>
+#include <set>
 #include <sstream>
+#include <stack>
+#include <string>
 #include <unordered_map>
 #include <unordered_set>
+#include <vector>
 
 using namespace std;
 
@@ -38,6 +38,6 @@ typedef vector<string> vs;
 
 // Fast I/O
 inline void fast_io() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(nullptr);
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
 }

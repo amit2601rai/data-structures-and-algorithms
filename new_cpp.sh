@@ -62,6 +62,16 @@ cp "$TEMPLATE_FILE" "$TARGET_FILE"
 print_success "Created new C++ file: $TARGET_FILE"
 print_info "Template copied from: $TEMPLATE_FILE"
 
+# Format the new file with Google C++ style if clang-format is available
+if command -v clang-format &> /dev/null; then
+    print_info "Formatting with Google C++ style..."
+    clang-format -i -style=file "$TARGET_FILE"
+    print_success "File formatted successfully"
+else
+    print_info "clang-format not found, skipping auto-format"
+    print_info "Install with: brew install clang-format (macOS) or sudo apt-get install clang-format (Linux)"
+fi
+
 # Open in VS Code if available
 if command -v code &> /dev/null; then
     print_info "Opening in VS Code..."

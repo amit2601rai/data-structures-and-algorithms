@@ -42,6 +42,11 @@ make template NAME=ProblemName DIR=src/concepts/category
 
 # Create test case files (creates tst/input and tst/output)
 make create-test
+
+# Format code with Google C++ style
+make format FILE=src/path/to/file.cpp     # Format specific file
+make format-all                           # Format all C++ files
+make format-check                         # Check formatting without changes
 ```
 
 **Using Shell Script**
@@ -145,6 +150,58 @@ The modern C++ template (`cpp_template.cpp`) includes:
 ### Directory Structure
 - `build/`: All compiled executables (automatically created)
 - No external dependencies or include directories needed
+
+## 🎨 Code Formatting
+
+The repository uses **Google C++ Style Guide** for consistent code formatting:
+
+### **Setup**
+```bash
+# Install clang-format (one-time setup)
+# macOS
+brew install clang-format
+
+# Linux
+sudo apt-get install clang-format
+```
+
+### **Formatting Commands**
+```bash
+# Format a specific file
+make format FILE=src/path/to/file.cpp
+
+# Format all C++ files in the repository
+make format-all
+
+# Check formatting without making changes
+make format-check
+```
+
+### **Automatic Formatting**
+- **VS Code**: Automatically formats on save (configured in `.vscode/settings.json`)
+- **New files**: Automatically formatted when created with `./new_cpp.sh`
+- **Git integration**: Pre-commit hook checks formatting before commits
+
+### **Style Configuration**
+The `.clang-format` file configures:
+- **Base Style**: Google C++ Style Guide
+- **Indentation**: 2 spaces
+- **Line Length**: 120 characters
+- **Brace Style**: Attach (same line as function/control structure)
+- **Include Sorting**: Automatic organization of headers
+
+### **Pre-commit Hook**
+The repository includes a pre-commit hook that:
+- Automatically checks formatting of staged C++ files
+- Prevents commits with improperly formatted code
+- Provides helpful commands to fix formatting issues
+
+```bash
+# If formatting check fails during commit:
+make format-all              # Format all files
+git add .                    # Stage formatted changes
+git commit                   # Commit again
+```
 
 ## 📝 Testing Workflow
 
