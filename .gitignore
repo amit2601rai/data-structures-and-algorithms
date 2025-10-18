@@ -1,0 +1,43 @@
+# Build artifacts
+build/
+*.o
+*.exe
+*.out
+a.out
+
+# Keep include directory but ignore build outputs
+!include/
+
+# Object files
+*.obj
+
+# Executables (common names in competitive programming)
+solution
+main
+test
+debug
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# Input/output files (optional - uncomment if you want to track them)
+# input.txt
+# output.txt
+# expected.txt
