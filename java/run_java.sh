@@ -6,7 +6,7 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SRC_DIR="$SCRIPT_DIR/src/main/java"
+SRC_DIR="$SCRIPT_DIR/src"
 BUILD_DIR="$SCRIPT_DIR/build/classes"
 
 # Colors for output

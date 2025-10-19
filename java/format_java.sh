@@ -51,7 +51,7 @@ else
 fi
 
 # Determine target (file or directory)
-TARGET="${1:-src/main/java}"
+TARGET="${1:-src}"
 
 if [ -f "$TARGET" ]; then
     # Format single file
