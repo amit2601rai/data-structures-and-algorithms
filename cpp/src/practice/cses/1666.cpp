@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void dfs(int s, vector<vector<int>>&v, vector<bool> &vis) {
+void dfs(int s, vector<vector<int>> &v, vector<bool> &vis) {
   vis[s] = true;
   for (int i = 0; i < v[s].size(); i++) {
     if (!vis[v[s][i]]) dfs(v[s][i], v, vis);
@@ -35,7 +35,7 @@ int main() {
   cout << rep.size() - 1 << endl;
 
   for (int i = 1; i < rep.size(); i++) {
-    cout << rep[i-1] << " " << rep[i] << endl;
+    cout << rep[i - 1] << " " << rep[i] << endl;
   }
 
   return 0;
