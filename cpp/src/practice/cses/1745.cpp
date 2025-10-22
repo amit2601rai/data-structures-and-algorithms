@@ -17,12 +17,12 @@ int main() {
 
   for (int i = 1; i < n; i++) {
     for (int j = 1; j < 100005; j++) {
-      dp[i][j] = dp[i-1][j] || ((j-v[i] >= 0) ? dp[i-1][j-v[i]] : false);
+      dp[i][j] = dp[i - 1][j] || ((j - v[i] >= 0) ? dp[i - 1][j - v[i]] : false);
     }
   }
   vector<int> ans;
   for (int j = 1; j < 100005; j++) {
-    if (dp[n-1][j]) ans.push_back(j);
+    if (dp[n - 1][j]) ans.push_back(j);
   }
   cout << ans.size() << endl;
   for (int sum : ans) cout << sum << " ";
