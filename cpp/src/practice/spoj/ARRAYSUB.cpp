@@ -1,6 +1,5 @@
 #include <cstdio>
 #include <deque>
-#include <iostream>
 using namespace std;
 int main() {
   int n, k, *a;

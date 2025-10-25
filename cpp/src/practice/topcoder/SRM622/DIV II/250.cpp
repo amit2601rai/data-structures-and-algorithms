@@ -1,13 +1,7 @@
 /*Amit Rai(IIIT Hyderabad)*/
 #include<cstdio>
 #include<cstdlib>
-#include<cstring>
-#include<climits>
-#include<cmath>
-#include<iostream>
 #include<vector>
-#include<queue>
-#include<stack>
 #include<map>
 #include<set>
 #include<list>
@@ -40,17 +34,14 @@ typedef map<int, int> mi;
 #include <map>
 #include <set>
 #include <deque>
-#include <stack>
 #include <bitset>
 #include <algorithm>
 #include <functional>
 #include <numeric>
 #include <utility>
 #include <sstream>
-#include <iostream>
 #include <iomanip>
 #include <cstdio>
-#include <cmath>
 #include <cstdlib>
 #include <ctime>
 

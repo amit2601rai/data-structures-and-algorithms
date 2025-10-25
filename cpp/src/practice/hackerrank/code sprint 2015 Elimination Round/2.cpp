@@ -1,6 +1,14 @@
 /*Amit Rai(IIIT Hyderabad)*/
- #include <bits/stdc++.h>
-
+#include <algorithm>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <map>
+#include <set>
+#include <queue>
+#include <cmath>
+#include <climits>
+#include <utility>
 using namespace std;
 
 typedef long long ll;

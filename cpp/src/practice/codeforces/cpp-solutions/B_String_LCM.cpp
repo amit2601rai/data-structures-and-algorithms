@@ -1,5 +1,6 @@
-#include <bits/stdc++.h>
-
+#include <algorithm>
+#include <iostream>
+#include <string>
 using namespace std;
 
 int occurences(string s, string t) {

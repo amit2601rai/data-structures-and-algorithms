@@ -1,5 +1,7 @@
-#include <bits/stdc++.h>
-
+#include <algorithm>
+#include <iostream>
+#include <string>
+#include <vector>
 using namespace std;
 
 vector<int> solve(vector<int> v, int n, int k) {

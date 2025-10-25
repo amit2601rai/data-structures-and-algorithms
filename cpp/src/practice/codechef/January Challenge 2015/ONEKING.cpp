@@ -1,9 +1,5 @@
 //Author Amit Kr. Rai
 #include<vector>
-#include<stack>
-#include<set>
-#include<map>
-#include<queue>
 #include<deque>
 #include<string>
 #include<iostream>
@@ -12,9 +8,7 @@
 #include<cassert>
 #include<cstdlib>
 #include<cstdio>
-#include<cmath>
 #include<cstdlib>
-#include<climits>
 
 using namespace std;
 

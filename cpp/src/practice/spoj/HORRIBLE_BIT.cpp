@@ -1,7 +1,5 @@
-#include <algorithm>
 #include <cstdio>
 #include <cstdlib>
-#include <cstring>
 #include <iostream>
 
 #define MAX 100000

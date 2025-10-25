@@ -3,7 +3,6 @@ Problem Statement : Given an array and an integer k, find the maximum for each a
 **/
 
 #include <iostream>
-#include <queue>
 
 using namespace std;
 

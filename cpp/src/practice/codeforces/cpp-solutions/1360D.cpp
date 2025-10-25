@@ -1,6 +1,7 @@
 /*Amit Rai(IIIT Hyderabad)*/
-#include <bits/stdc++.h>
-
+#include <algorithm>
+#include <iostream>
+#include <string>
 using namespace std;
 
 int main() {

@@ -1,7 +1,6 @@
 /*Amit Rai(IIIT Hyderabad)*/
 
 #include <cstdio>
-#include <iostream>
 #include <stack>
 
 using namespace std;

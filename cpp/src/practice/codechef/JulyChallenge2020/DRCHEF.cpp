@@ -1,6 +1,9 @@
 /* Amit Rai(IIIT Hyderabad) */
-#include <bits/stdc++.h>
-
+#include <algorithm>
+#include <iostream>
+#include <queue>
+#include <string>
+#include <utility>
 using namespace std;
 
 typedef long long ll;

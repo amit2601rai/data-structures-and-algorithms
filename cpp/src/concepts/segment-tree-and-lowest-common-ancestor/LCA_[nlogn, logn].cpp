@@ -3,7 +3,6 @@
 #include<algorithm>
 #include<vector>
 #include<queue>
-#include<cmath>
 
 
 #define MAXN 1001

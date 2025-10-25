@@ -1,5 +1,4 @@
 #include <algorithm>
-#include <cstring>
 #include <iostream>
 
 #define M 1000000

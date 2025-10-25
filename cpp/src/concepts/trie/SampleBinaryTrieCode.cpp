@@ -3,14 +3,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <algorithm>
 #include <cassert>
-#include <iostream>
-#include <map>
-#include <queue>
-#include <set>
 #include <sstream>
-#include <stack>
 #include <vector>
 using namespace std;
 #define pb push_back

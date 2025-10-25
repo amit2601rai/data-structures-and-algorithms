@@ -1,17 +1,13 @@
 /*Author:Amit(IIIT-H)*/
-#include <algorithm>
 #include <bitset>
 #include <climits>
 #include <cmath>
 #include <cstdio>
 #include <cstdlib>
-#include <cstring>
 #include <iostream>
 #include <list>
 #include <map>
-#include <queue>
 #include <set>
-#include <stack>
 #include <string>
 #include <vector>
 

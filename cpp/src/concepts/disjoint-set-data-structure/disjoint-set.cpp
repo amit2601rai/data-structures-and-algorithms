@@ -1,6 +1,11 @@
 /*Amit Rai(IIIT Hyderabad)*/
-#include <bits/stdc++.h>
-
+#include <iostream>
+#include <map>
+#include <queue>
+#include <set>
+#include <string>
+#include <utility>
+#include <vector>
 using namespace std;
 
 typedef long long ll;
@@ -65,13 +70,16 @@ int main() {
     s(t);
     s(x);
     s(y);
-    if (t)
+    if (t) {
       if (findSet(x) != findSet(y)) mergeSet(x, y);
-    if (!t)
-      if (findSet(x) == findSet(y))
+    }
+    if (!t) {
+      if (findSet(x) == findSet(y)) {
         cout << "Yes" << endl;
-      else
+      } else {
         cout << "No" << endl;
+      }
+    }
   }
   return 0;
 }

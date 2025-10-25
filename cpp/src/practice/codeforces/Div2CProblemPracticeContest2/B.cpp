@@ -1,6 +1,7 @@
 /*Amit Rai (IIIT Hyderabad)*/
-#include <bits/stdc++.h>
-
+#include <string>
+#include <utility>
+#include <vector>
 using namespace std;
 
 typedef long long ll;

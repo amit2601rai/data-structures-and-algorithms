@@ -1,15 +1,10 @@
 //Author:Amit Rai (IIIT-Hyderabad)
 #include<cstdio>
 #include<cstdlib>
-#include<cstring>
-#include<climits>
-#include<cmath>
 #include<iostream>
 #include<algorithm>
 #include<string>
 #include<vector>
-#include<queue>
-#include<stack>
 #include<map>
 #include<set>
 #include<list>

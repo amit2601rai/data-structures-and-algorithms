@@ -1,5 +1,8 @@
-#include <bits/stdc++.h>
-
+#include <algorithm>
+#include <iostream>
+#include <string>
+#include <utility>
+#include <vector>
 using namespace std;
 
 vector<pair<int, int> > collectPairs(vector<int> v, int x, int sz) {

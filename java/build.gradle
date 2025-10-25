@@ -1,0 +1,129 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'com.diffplug.spotless' version '6.25.0'
+}
+
+group = 'com.algorithms'
+version = '1.0.0'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+// Configure source and build directories
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+    }
+    test {
+        java {
+            srcDirs = ['test']
+        }
+    }
+}
+
+// Custom build directory
+buildDir = file('build')
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // JUnit 5 for testing
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.1'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    
+    // AssertJ for better assertions
+    testImplementation 'org.assertj:assertj-core:3.24.2'
+}
+
+application {
+    mainClass = 'practice.Main'
+}
+
+// Google Java Format integration using Spotless
+spotless {
+    java {
+        target 'src/**/*.java'
+        googleJavaFormat('1.18.1').aosp().reflowLongStrings()
+        removeUnusedImports()
+        trimTrailingWhitespace()
+        endWithNewline()
+    }
+}
+
+// Configure test task
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+        exceptionFormat "full"
+        showStandardStreams = false
+    }
+}
+
+// Custom tasks for competitive programming
+tasks.register('runMain', JavaExec) {
+    group = 'application'
+    description = 'Run the main class (practice.Main)'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'practice.Main'
+    standardInput = System.in
+}
+
+tasks.register('runHello', JavaExec) {
+    group = 'application'
+    description = 'Run HelloWorld'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'practice.HelloWorld'
+}
+
+// Custom task to run any class
+tasks.register('runClass', JavaExec) {
+    group = 'application'
+    description = 'Run a specific class. Usage: gradle runClass -PmainClass=practice.YourClass -Pargs="arg1,arg2"'
+    classpath = sourceSets.main.runtimeClasspath
+    
+    if (project.hasProperty('mainClass')) {
+        mainClass = project.property('mainClass')
+    } else {
+        mainClass = 'practice.Main'
+    }
+    
+    if (project.hasProperty('args')) {
+        args = project.property('args').split(',')
+    }
+    
+    standardInput = System.in
+}
+
+// Format check without modifying files
+tasks.register('checkFormat') {
+    group = 'verification'
+    description = 'Check if code is formatted according to Google Java Style'
+    dependsOn 'spotlessCheck'
+}
+
+// Format all files
+tasks.register('format') {
+    group = 'formatting'
+    description = 'Format all Java files according to Google Java Style'
+    dependsOn 'spotlessApply'
+}
+
+// Quick compile task
+tasks.register('compile') {
+    group = 'build'
+    description = 'Compile all Java source files'
+    dependsOn 'classes'
+}
+
+// Clean task configuration
+clean {
+    delete 'build'
+}

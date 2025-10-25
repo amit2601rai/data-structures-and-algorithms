@@ -1,136 +1,40 @@
-# C++ Build artifacts
+# Build artifacts
 build/
+target/
 *.o
 *.exe
 *.out
-a.out
-
-# Keep include directory but ignore build outputs
-!include/
-
-# Object files
-*.obj
-
-# Executables (common names in competitive programming)
-solution
-main
-test
-debug
-
-# Java Build artifacts
-target/
-build/
 *.class
-*.jar
-*.war
-*.ear
-*.nar
-hs_err_pid*
-
-# Maven
-.mvn/
-mvnw
-mvnw.cmd
+a.out
 
 # Gradle
 .gradle/
-build/
 gradle-app.setting
 !gradle-wrapper.jar
 !gradle-wrapper.properties
 
-# Java compilation
-*.log
-
-# Java formatter tool
+# Java formatter
 google-java-format*.jar
 
-# IDE files
+# IDE
 .vscode/
 .idea/
-*.swp
-*.swo
-*~
+*.iml
+*.ipr
+*.iws
+.settings/
 .project
 .classpath
-.settings/
-*.iml
-*.ipr
-*.iws
 
-# Eclipse
-.metadata
-bin/
-tmp/
-*.tmp
-*.bak
-*.swp
-*~.nib
-local.properties
-.loadpath
-.recommenders
-
-# NetBeans
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-
-# IntelliJ IDEA
-.idea/
-*.iws
-*.iml
-*.ipr
-out/
-
-# OS generated files
+# OS
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
 Thumbs.db
 
-# Temporary files
-*.tmp
-*.temp
+# Logs
+*.log
 
-# Package Files
-*.7z
-*.dmg
-*.gz
-*.iso
-*.jar
-*.rar
-*.tar
-*.zip
-*.war
-*.ear
-*.sar
-*.class
-
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# virtual machine crash logs
-hs_err_pid*
-replay_pid*
-
-# Input/output files (optional - uncomment if you want to track them)
-# input.txt
-# output.txt
-# expected.txt
-
-# Test files that might be generated
+# Test files
 *.input
 *.output
 *.expected
-
-# Backup files
-*.backup
-*.orig
+*.tmp

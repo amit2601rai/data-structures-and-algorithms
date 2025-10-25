@@ -1,6 +1,10 @@
 /*Amit Rai(IIIT Hyderabad)*/
-#include <bits/stdc++.h>
-
+#include <algorithm>
+#include <climits>
+#include <cmath>
+#include <iostream>
+#include <map>
+#include <string>
 using namespace std;
 
 long long minSwapCost(map<long long, long long> a, map<long long, long long> b, long long minVal) {

@@ -1,5 +1,7 @@
-#include <bits/stdc++.h>
-
+#include <algorithm>
+#include <iostream>
+#include <string>
+#include <vector>
 using namespace std;
 
 int cal(string s, int m, int x, int y) {

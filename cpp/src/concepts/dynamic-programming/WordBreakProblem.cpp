@@ -1,5 +1,7 @@
-#include <bits/stdc++.h>
-
+#include <algorithm>
+#include <iostream>
+#include <map>
+#include <string>
 using namespace std;
 
 map<string, bool> M;

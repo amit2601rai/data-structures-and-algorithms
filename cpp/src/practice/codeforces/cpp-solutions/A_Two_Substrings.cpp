@@ -1,5 +1,7 @@
-#include <bits/stdc++.h>
-
+#include <algorithm>
+#include <iostream>
+#include <string>
+#include <vector>
 using namespace std;
 
 int longestCommonSubseq(string a, string b) {

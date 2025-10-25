@@ -1,6 +1,5 @@
 #include <algorithm>
 #include <iostream>
-#include <map>
 #include <vector>
 
 #define MINVAL -1000000000

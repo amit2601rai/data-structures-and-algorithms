@@ -4,7 +4,6 @@ A) Given an array A of integers, find the maximum of j-i subjected to the constr
 B) Given an array A of integers, find the maximum of j-i subjected to the constraint of A[i] > A[j].
 */
 
-#include <climits>
 #include <iostream>
 
 using namespace std;

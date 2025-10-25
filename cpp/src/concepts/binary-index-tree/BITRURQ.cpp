@@ -1,4 +1,3 @@
-#include <algorithm>
 #include <iostream>
 
 #define MAX 100000
