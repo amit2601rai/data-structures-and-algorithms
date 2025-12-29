@@ -18,7 +18,6 @@
 
 using namespace std;
 
-// Common competitive programming typedefs
 typedef long long ll;
 typedef unsigned long long ull;
 typedef pair<int, int> pii;
@@ -28,7 +27,6 @@ typedef vector<ll> vll;
 typedef vector<pii> vpii;
 typedef vector<string> vs;
 
-// Common macros
 #define pb push_back
 #define mp make_pair
 #define fi first
