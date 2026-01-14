@@ -8,8 +8,8 @@ using namespace std;
 typedef long long ll;
 const int INF = 1e9;
 
-
-void preprocess(vector<vector<int>>& graph, vector<int>& depth, vector<vector<int>>& up, int source, vector<int> parent, int n, int k) {
+void preprocess(vector<vector<int>>& graph, vector<int>& depth, vector<vector<int>>& up, int source, vector<int> parent,
+                int n, int k) {
   for (int i = 1; i <= n; i++) {
     if (i == 1) {
       up[i][0] = -1;
@@ -24,7 +24,7 @@ void preprocess(vector<vector<int>>& graph, vector<int>& depth, vector<vector<in
         up[i][j] = -1;
         continue;
       }
-      up[i][j] = (up[i][j-1] != -1) ? up[up[i][j - 1]][j - 1] : -1;
+      up[i][j] = (up[i][j - 1] != -1) ? up[up[i][j - 1]][j - 1] : -1;
     }
   }
 
@@ -45,7 +45,7 @@ void preprocess(vector<vector<int>>& graph, vector<int>& depth, vector<vector<in
 
 int lca(int a, int b, vector<vector<int>>& up, vector<int>& depth) {
   if (depth[a] < depth[b]) swap(a, b);
-  
+
   // Bring a to same level as b
   int diff = depth[a] - depth[b];
   for (int j = 20; j >= 0; j--) {
@@ -53,9 +53,9 @@ int lca(int a, int b, vector<vector<int>>& up, vector<int>& depth) {
       a = up[a][j];
     }
   }
-  
+
   if (a == b) return a;
-  
+
   // Binary search for LCA
   for (int j = 20; j >= 0; j--) {
     if (up[a][j] != up[b][j]) {
@@ -71,7 +71,7 @@ int main() {
   cin >> n >> q;
   vector<vector<int>> graph(n + 1);
   vector<int> parent(n + 1, -1);
-  vector<int> depth(n+1, INF);
+  vector<int> depth(n + 1, INF);
   for (int i = 2; i <= n; i++) {
     int u;
     cin >> u;
@@ -84,7 +84,7 @@ int main() {
   while (q--) {
     int a, b;
     cin >> a >> b;
-    cout << lca(a,b,up, depth) << endl;
+    cout << lca(a, b, up, depth) << endl;
   }
   return 0;
 }

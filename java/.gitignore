@@ -48,3 +48,12 @@ Thumbs.db
 # Test outputs
 test-output/
 *.log
+
+src/cses/input
+src/cses/output
+
+# Temporary files
+*.tmp
+*.swp
+*~
+

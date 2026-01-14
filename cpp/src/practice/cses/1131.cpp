@@ -10,10 +10,8 @@ typedef long long ll;
 
 const int INF = 1e9;
 
-
-
 pair<int, int> bfs(vector<vector<int>>& graph, int n, int source) {
-  vector<int> dis(n+1, INF);
+  vector<int> dis(n + 1, INF);
   queue<int> q;
   dis[source] = 0;
   q.push(source);
@@ -39,14 +37,12 @@ pair<int, int> bfs(vector<vector<int>>& graph, int n, int source) {
   }
 
   return make_pair(d, v);
- 
 }
-
 
 int main() {
   int n;
   cin >> n;
-  vector<vector<int>> graph(n+1);
+  vector<vector<int>> graph(n + 1);
   int e = n - 1;
   while (e--) {
     int u, v;
@@ -58,6 +54,6 @@ int main() {
   pair<int, int> p = bfs(graph, n, 1);
   pair<int, int> q = bfs(graph, n, p.second);
   cout << q.first << endl;
-  
+
   return 0;
 }
